@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { AuthModals } from "./AuthModals";
 import { CopilotSection } from "./CopilotSection";
@@ -10,21 +11,19 @@ import { FooterSection } from "./FooterSection";
 import { ArrowRight } from "lucide-react";
 
 export function LandingPage() {
-  const [openSignIn, setOpenSignIn] = useState(false);
+  const navigate = useNavigate();
   const [openSignUp, setOpenSignUp] = useState(false);
 
-  const openSignInModal = () => {
+  const goToDashboard = () => {
     setOpenSignUp(false);
-    setOpenSignIn(true);
+    navigate("/dashboard");
   };
 
   const openSignUpModal = () => {
-    setOpenSignIn(false);
     setOpenSignUp(true);
   };
 
   const closeModals = () => {
-    setOpenSignIn(false);
     setOpenSignUp(false);
   };
 
@@ -46,7 +45,7 @@ export function LandingPage() {
           <div className="flex items-center gap-3">
             <button
               className="rounded-3xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/10"
-              onClick={openSignInModal}
+              onClick={goToDashboard}
             >
               Sign In
             </button>
@@ -62,7 +61,7 @@ export function LandingPage() {
       </header>
 
       <main className="relative">
-        <HeroSection onGetStarted={openSignInModal} onViewDemo={() => {}} />
+        <HeroSection onGetStarted={goToDashboard} onViewDemo={goToDashboard} />
         <FeaturesSection />
         <AnalyticsSection />
         <CopilotSection />
@@ -98,10 +97,10 @@ export function LandingPage() {
 
       <FooterSection />
       <AuthModals
-        openSignIn={openSignIn}
+        openSignIn={false}
         openSignUp={openSignUp}
         onClose={closeModals}
-        onOpenSignIn={openSignInModal}
+        onOpenSignIn={goToDashboard}
         onOpenSignUp={openSignUpModal}
       />
     </div>
