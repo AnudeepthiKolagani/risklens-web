@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.agents
+.cursor
+.github
+.jetro
+.windsurfrules
+.mcp.json
+CLAUDE.md
+AGENT.md
