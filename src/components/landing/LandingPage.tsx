@@ -66,30 +66,72 @@ export function LandingPage() {
         <AnalyticsSection />
         <CopilotSection />
         <ScenariosSection />
-        <section className="px-6 py-24 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_40px_80px_-40px_rgba(15,23,42,0.9)] backdrop-blur-3xl">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p className="text-sm uppercase tracking-[0.35em] text-cyan-300/80">
-                  Get started
-                </p>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Start your institutional AI risk journey.
+        <section className="relative overflow-hidden px-6 py-28 sm:px-8 lg:px-10">
+          {/* Background Glow */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
+
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.8rem] border border-white/10 bg-[#07111F]/80 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.95)] backdrop-blur-3xl">
+            {/* Grid Overlay */}
+            <div className="absolute inset-0 opacity-[0.04]">
+              <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:48px_48px]" />
+            </div>
+
+            {/* Glow Ring */}
+            <div className="absolute -right-20 top-1/2 h-[280px] w-[280px] -translate-y-1/2 rounded-full border border-cyan-400/10 bg-cyan-400/10 blur-3xl" />
+
+            <div className="relative z-10 flex flex-col gap-12 px-8 py-14 sm:px-12 lg:flex-row lg:items-center lg:justify-between lg:gap-20">
+              {/* LEFT CONTENT */}
+              <div className="max-w-3xl">
+                <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+                  Start building smarter portfolio decisions with AI.
                 </h2>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-                  Sign up for a guided demonstration and see how RiskLens
-                  transforms portfolio oversight with AI, automation, and
-                  elegant dashboards.
+
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
+                  RiskLens helps investment teams analyze portfolio exposure,
+                  simulate market scenarios, and uncover hidden risks through
+                  AI-powered analytics and intuitive visual intelligence.
+                </p>
+
+                {/* Features */}
+                <div className="mt-8 flex flex-wrap gap-4">
+                  {[
+                    "AI-powered risk insights",
+                    "Interactive scenario simulations",
+                    "Institutional-grade analytics",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300 backdrop-blur-xl"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT CTA */}
+              <div className="relative">
+                {/* Glow */}
+                <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-3xl" />
+
+                <Button
+                  variant="default"
+                  onClick={openSignUpModal}
+                  className="group relative h-auto overflow-hidden rounded-full border border-cyan-300/20 bg-cyan-400 px-8 py-3 text-lg font-medium text-slate-950 shadow-[0_20px_80px_-20px_rgba(34,211,238,0.7)] transition-all duration-300 hover:scale-[1.03] hover:bg-cyan-300"
+                >
+                  {/* Shine */}
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+
+                  <span className="relative z-10 flex items-center gap-3">
+                    Schedule a Demo
+                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </Button>
+
+                <p className="mt-6 text-center text-sm text-slate-200">
+                  Setup takes less than 2 minutes
                 </p>
               </div>
-              <Button
-                variant="default"
-                className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 text-base text-slate-950 shadow-xl shadow-cyan-500/15 hover:bg-cyan-300"
-                onClick={openSignUpModal}
-              >
-                Schedule a demo
-                <ArrowRight className="h-4 w-4" />
-              </Button>
             </div>
           </div>
         </section>
