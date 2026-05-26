@@ -22,7 +22,8 @@ export function DashboardPage() {
     totalSize,
   } = useFileUpload();
 
-  const { phase, isAnalyzing, startAnalysis, resetAnalysis } = useAnalysisStore();
+  const { phase, isAnalyzing, startAnalysis, resetAnalysis } =
+    useAnalysisStore();
 
   useEffect(() => {
     if (phase === "complete") {
@@ -39,10 +40,13 @@ export function DashboardPage() {
       totalSize={totalSize}
     >
       <section className="space-y-3">
-        <p className="bloomberg-section-title">Document ingest</p>
-        <div className="grid gap-3 xl:grid-cols-12">
+        <p className=" text-cyan-400">Document ingest</p>
+        <div className="grid gap-3 xl:grid-cols-12 mt-3">
           <div className="space-y-3 xl:col-span-9">
-            <TerminalPanel title="Upload files" subtitle="PDF · DOCX · XLSX · CSV · Images">
+            <TerminalPanel
+              title="Upload files"
+              subtitle="PDF · DOCX · XLSX · CSV · Images"
+            >
               <UploadDropzone
                 onFilesAccepted={(incoming) => {
                   clearErrors();
@@ -74,7 +78,9 @@ export function DashboardPage() {
             <ul className="space-y-2 text-sm">
               <li className="flex justify-between text-slate-400">
                 <span>Queue</span>
-                <span className="font-metrics text-amber-400">{files.length}</span>
+                <span className="font-metrics text-amber-400">
+                  {files.length}
+                </span>
               </li>
               <li className="flex justify-between text-slate-400">
                 <span>Engine</span>

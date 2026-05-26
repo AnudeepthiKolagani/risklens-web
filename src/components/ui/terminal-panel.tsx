@@ -20,15 +20,15 @@ export function TerminalPanel({
 }: TerminalPanelProps) {
   return (
     <section className={`bloomberg-panel overflow-hidden ${className}`}>
-      <header className="flex items-center justify-between border-b border-[#ff9900]/25 bg-[#0c1018] px-3 py-2">
+      <header className="flex items-center justify-between border-b border-cyan-400/25 bg-[#0c1018] px-3 py-2">
         <div className="flex min-w-0 items-center gap-2">
-          <span className="h-4 w-[3px] shrink-0 rounded-full bg-[#ff9900]" aria-hidden />
+          <span className="h-12 w-[3px] shrink-0 rounded-full bg-cyan-400" aria-hidden />
           <div className="min-w-0">
-            <h3 className="truncate text-[11px] font-semibold uppercase tracking-[0.14em] text-[#ff9900]">
+            <h3 className="truncate text-md font-bold uppercase text-cyan-400">
               {title}
             </h3>
             {subtitle && (
-              <p className="truncate text-[10px] text-slate-500">{subtitle}</p>
+              <p className="truncate text-sm text-slate-500 mt-2">{subtitle}</p>
             )}
           </div>
         </div>

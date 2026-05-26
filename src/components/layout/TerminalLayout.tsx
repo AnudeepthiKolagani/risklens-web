@@ -21,7 +21,7 @@ export function TerminalLayout({
 
   return (
     <div className="terminal-bg min-h-screen text-slate-100">
-      <div className="relative mx-auto flex min-h-screen max-w-[1600px] gap-3 p-3 lg:gap-4 lg:p-4">
+      <div className="relative mx-auto flex min-h-screen gap-3 p-3 lg:gap-4 lg:p-4">
         <Sidebar
           collapsed={collapsed}
           onToggle={() => setCollapsed((c) => !c)}

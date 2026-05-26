@@ -50,7 +50,7 @@ export function AnalysisProcessor({
           <div className="flex gap-2">
             <Button
               onClick={onStart}
-              className="rounded-sm bg-[#ff9900] px-4 text-sm font-semibold text-black hover:bg-[#ffad33]"
+              className="rounded-sm bg-cyan-400 px-4 text-sm font-semibold text-black hover:bg-cyan-500"
             >
               <Play className="mr-1.5 h-4 w-4" />
               Start analysis
@@ -58,7 +58,7 @@ export function AnalysisProcessor({
             <Button
               variant="outline"
               onClick={onCancel}
-              className="rounded-sm border-white/10 text-slate-400"
+              className="rounded-sm border-cyan-400/40 text-slate-400"
             >
               <X className="mr-1 h-4 w-4" />
               Clear

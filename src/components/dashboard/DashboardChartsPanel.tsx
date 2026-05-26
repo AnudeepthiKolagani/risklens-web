@@ -14,7 +14,7 @@ export function DashboardChartsPanel() {
     <section className="space-y-3">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="bloomberg-section-title">Market monitor</p>
+          <p className="text-lg font-semibold text-cyan-300">Market monitor</p>
           <p className="mt-1 text-sm text-slate-500">
             Live risk exposure · color-coded by severity
           </p>
