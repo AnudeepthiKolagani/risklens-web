@@ -256,8 +256,104 @@ code {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;}
+    @apply border-border outline-ring/50;
+  }
   body {
-    @apply bg-background text-foreground;}
+    @apply bg-background text-foreground font-sans antialiased;
+  }
   html {
-    @apply font-sans;}}
+    @apply font-sans;
+  }
+}
+
+/* Bloomberg terminal shell */
+:root {
+  --terminal-bg: #000000;
+  --terminal-panel: #060a10;
+  --terminal-border: rgba(255, 255, 255, 0.1);
+  --bloomberg-orange: #ff9900;
+  --risk-green: #22c55e;
+  --risk-amber: #f59e0b;
+  --risk-red: #ef4444;
+  --radius: 2px;
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  border: none;
+  min-height: 100svh;
+}
+
+.terminal-bg {
+  background-color: var(--terminal-bg);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 153, 0, 0.03) 0%,
+    transparent 120px
+  );
+}
+
+.terminal-panel {
+  border: 1px solid var(--terminal-border);
+  background: var(--terminal-panel);
+}
+
+.bloomberg-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  background: #060a10;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.bloomberg-panel-body {
+  background: #040608;
+}
+
+.bloomberg-section-title {
+  @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-[#ff9900];
+}
+
+.bloomberg-legend-dot {
+  @apply inline-block h-2 w-2 rounded-sm;
+}
+
+.font-metrics {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.terminal-label {
+  @apply text-xs font-medium text-slate-400;
+}
+
+.terminal-caption {
+  @apply text-xs leading-relaxed text-slate-500;
+}
+
+.kpi-accent-low { border-left: 3px solid var(--risk-green); }
+.kpi-accent-moderate { border-left: 3px solid var(--risk-amber); }
+.kpi-accent-high { border-left: 3px solid var(--risk-red); }
+.kpi-accent-info { border-left: 3px solid #38bdf8; }
+.kpi-accent-critical {
+  border-left: 3px solid var(--risk-red);
+  box-shadow: inset 0 0 20px rgba(239, 68, 68, 0.08);
+}
+
+/* Scrollbar — terminal style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

@@ -1,66 +1,75 @@
-import { DashboardLayout } from "../layouts/DashboardLayout";
-import { SectionHeader } from "../components/shared/SectionHeader";
-import { AIInsightCard } from "../components/shared/AIInsightCard";
-import { RiskGauge } from "../charts/RiskGauge";
-import { LineTrendChart } from "../charts/LineTrendChart";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { TerminalLayout } from "@/components/layout/TerminalLayout";
+import { TerminalPanel } from "@/components/ui/terminal-panel";
+import { KpiMetricsBar } from "@/components/analysis/KpiMetricsBar";
+import { VisualizationGrid } from "@/components/analysis/VisualizationGrid";
+import { InsightsFeed } from "@/components/analysis/InsightsFeed";
+import { RiskBreakdownPanel } from "@/components/analysis/RiskBreakdownPanel";
+import { AnalysisDetailsPanel } from "@/components/analysis/AnalysisDetailsPanel";
+import { useAnalysisStore } from "@/store/analysisStore";
+import { createMockAnalysis } from "@/mock/analysisData";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function AnalysisPage() {
+  const navigate = useNavigate();
+  const result = useAnalysisStore((s) => s.result);
+
+  useEffect(() => {
+    if (!result) {
+      useAnalysisStore.setState({ result: createMockAnalysis(2) });
+    }
+  }, [result]);
+
+  const data = useAnalysisStore((s) => s.result);
+
+  if (!data) {
+    return (
+      <TerminalLayout title="Analysis" subtitle="Loading…">
+        <Skeleton className="h-24 rounded-sm" />
+        <Skeleton className="h-72 rounded-sm" />
+      </TerminalLayout>
+    );
+  }
+
   return (
-    <DashboardLayout fileCount={2} totalSize={1024}>
-      <div className="space-y-6">
-        <SectionHeader
-          title="Analysis"
-          subtitle="AI-driven portfolio risk intelligence"
-        />
+    <TerminalLayout
+      title="Risk Analysis"
+      subtitle={`${data.documentCount} documents · ${new Date(data.generatedAt).toLocaleString()}`}
+      fileCount={data.documentCount}
+    >
+      <section className="space-y-3">
+        <p className="bloomberg-section-title">Risk summary</p>
+        <TerminalPanel title="Executive summary" ticker="TXT">
+          <p className="text-sm leading-relaxed text-slate-400">{data.summary}</p>
+        </TerminalPanel>
+        <KpiMetricsBar metrics={data.kpis} />
+      </section>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="rounded-2xl border border-white/6 bg-slate-950/60 p-6 shadow-lg backdrop-blur"
-          >
-            <h3 className="text-lg font-semibold text-white">AI Summary</h3>
-            <p className="mt-2 text-slate-300">
-              Your portfolio is highly concentrated in technology equities,
-              increasing vulnerability during market rotations. Consider
-              rebalancing towards value sectors.
-            </p>
-          </motion.div>
+      <VisualizationGrid result={data} />
 
-          <div className="lg:col-span-2 grid gap-6">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <motion.div className="rounded-2xl border border-white/6 bg-slate-950/60 p-6 shadow-lg backdrop-blur">
-                <h4 className="text-sm font-medium text-slate-300">
-                  Risk Gauge
-                </h4>
-                <RiskGauge className="mt-6 h-36" />
-              </motion.div>
-
-              <motion.div className="rounded-2xl border border-white/6 bg-slate-950/60 p-6 shadow-lg backdrop-blur">
-                <h4 className="text-sm font-medium text-slate-300">
-                  Diversification Trend
-                </h4>
-                <LineTrendChart className="mt-6 h-36" />
-              </motion.div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <AIInsightCard title="Correlation Warning">
-                High positive correlation between your top 5 holdings suggests
-                limited diversification benefits.
-              </AIInsightCard>
-              <AIInsightCard title="Exposure">
-                Technology represents 38% of portfolio value.
-              </AIInsightCard>
-              <AIInsightCard title="Recommendation">
-                Run a scenario analysis for rate shocks and tech drawdowns.
-              </AIInsightCard>
-            </div>
-          </div>
+      <div className="grid gap-3 xl:grid-cols-12">
+        <div className="space-y-3 xl:col-span-8">
+          <AnalysisDetailsPanel result={data} />
+          <RiskBreakdownPanel
+            anomalies={data.anomalies}
+            recommendations={data.recommendations}
+          />
         </div>
+        <InsightsFeed insights={data.insights} className="xl:col-span-4" />
       </div>
-    </DashboardLayout>
+
+      <div className="flex justify-end border-t border-white/10 pt-4">
+        <Button
+          variant="outline"
+          onClick={() => navigate("/dashboard")}
+          className="rounded-sm border-[#ff9900]/30 bg-[#ff9900]/10 text-sm text-[#ff9900] hover:bg-[#ff9900]/20"
+        >
+          New analysis
+        </Button>
+      </div>
+    </TerminalLayout>
   );
 }
 
