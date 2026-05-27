@@ -1,7 +1,6 @@
 import { ReactNode, useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { Navbar } from "./Navbar";
-import { useThemeStore } from "@/store/themeStore";
 import { cn } from "@/lib/utils";
 
 interface TerminalLayoutProps {
@@ -20,15 +19,9 @@ export function TerminalLayout({
   totalSize = 0,
 }: TerminalLayoutProps) {
   const [collapsed, setCollapsed] = useState(false);
-  const theme = useThemeStore((s) => s.theme);
 
   return (
-    <div
-      className={cn(
-        "terminal-bg min-h-screen",
-        theme === "dark" ? "text-slate-100" : "text-slate-900",
-      )}
-    >
+    <div className={cn("terminal-bg min-h-screen text-slate-100")}>
       <div className="relative mx-auto flex min-h-screen gap-3 p-3 lg:gap-4 lg:p-4">
         <Sidebar
           collapsed={collapsed}

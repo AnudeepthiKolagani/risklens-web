@@ -1,7 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import { ANALYSIS_PHASES } from "@/types/analysis";
 import type { AnalysisPhase } from "@/types/analysis";
-import { useThemeStore } from "@/store/themeStore";
 import { cn } from "@/lib/utils";
 
 const FLOW_PHASES = ANALYSIS_PHASES.map((p) => p.phase);
@@ -35,12 +34,8 @@ export function PipelineFlowStatus({
   isAnalyzing,
   queueCount,
 }: PipelineFlowStatusProps) {
-  const theme = useThemeStore((s) => s.theme);
   const stateClasses = {
-    idle:
-      theme === "dark"
-        ? "border-white/10 bg-[#0a0e14] text-slate-500"
-        : "border-slate-200 bg-slate-100 text-slate-500",
+    idle: "border-white/10 bg-[#0a0e14] text-slate-500",
     active:
       "border-cyan-400/60 bg-cyan-400/15 text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.2)]",
     done: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400",

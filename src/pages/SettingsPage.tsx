@@ -1,12 +1,11 @@
 import { TerminalLayout } from "@/components/layout/TerminalLayout";
 import { TerminalPanel } from "@/components/ui/terminal-panel";
-import { ThemeSelector } from "@/components/settings/ThemeSelector";
 
 export function SettingsPage() {
   return (
     <TerminalLayout
       title="Settings"
-      subtitle="Preferences · Theme · Profile"
+      subtitle="Preferences · Profile"
     >
       <section className="space-y-3">
         <p className="analysis-section-title">Configuration</p>
@@ -33,7 +32,12 @@ export function SettingsPage() {
             subtitle="Workspace"
             className="lg:col-span-8"
           >
-            <ThemeSelector />
+            <div className="space-y-3 rounded-sm border border-white/10 bg-[#0a0e14]/80 p-4">
+              <p className="text-sm font-medium text-slate-300">Appearance</p>
+              <p className="text-sm text-slate-400">
+                Dark theme is fixed for this application.
+              </p>
+            </div>
             <div className="mt-6 border-t border-white/10 pt-4">
               <p className="text-sm font-medium text-slate-300">
                 Email notifications

@@ -8,7 +8,7 @@ import { FeaturesSection } from "./FeaturesSection";
 import { HeroSection } from "./HeroSection";
 import { ScenariosSection } from "./ScenariosSection";
 import { FooterSection } from "./FooterSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export function LandingPage() {
   const navigate = useNavigate();
@@ -43,18 +43,13 @@ export function LandingPage() {
             RiskLens
           </a>
           <div className="flex items-center gap-3">
-            <button
-              className="rounded-3xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/10"
-              onClick={goToDashboard}
-            >
-              Sign In
-            </button>
+           
             <Button
-              onClick={openSignUpModal}
+              onClick={goToDashboard}
               variant="default"
-              className="rounded-3xl bg-cyan-400 px-4 py-2 text-sm text-slate-950 shadow-lg shadow-cyan-500/10 hover:bg-cyan-300"
+              className="rounded-3xl bg-cyan-400 px-4 py-2 text-sm text-slate-950 shadow-lg shadow-cyan-500/10 hover:bg-cyan-300 cursor-pointer transition-colors"
             >
-              Sign Up
+              Go To Dashboard <ArrowUpRight className="h-4 w-4" />
             </Button>
           </div>
         </div>

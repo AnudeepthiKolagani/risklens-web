@@ -5,6 +5,7 @@ export type ThemeMode = "dark" | "light";
 
 function applyThemeToDocument(theme: ThemeMode) {
   const root = document.documentElement;
+  root.dataset.theme = theme;
   if (theme === "dark") {
     root.classList.add("dark");
     root.dataset.terminalTheme = "dark";

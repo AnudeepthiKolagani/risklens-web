@@ -33,7 +33,7 @@ export function ThemeSelector() {
                 active
                   ? "border-cyan-400/50 bg-cyan-400/10 text-cyan-300"
                   : isLight
-                    ? "border-slate-200 bg-slate-100 text-slate-600 hover:border-slate-300"
+                    ? "border-slate-300 bg-slate-100 text-slate-800 hover:border-slate-400"
                     : "border-white/10 bg-[#0a0e14] text-slate-400 hover:border-white/20 hover:text-slate-200",
               )}
             >
