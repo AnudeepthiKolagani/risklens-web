@@ -9,7 +9,18 @@ export interface UploadedFile {
   extension: string;
 }
 
-const ACCEPTED_EXTENSIONS = [".pdf", ".csv", ".xlsx", ".xls"];
+const ACCEPTED_EXTENSIONS = [
+  ".pdf",
+  ".csv",
+  ".xlsx",
+  ".xls",
+  ".docx",
+  ".doc",
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".webp",
+];
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 function getId() {
@@ -46,7 +57,7 @@ export function validateUploadFile(file: File) {
   const extension = getFileExtension(file.name);
 
   if (!ACCEPTED_EXTENSIONS.includes(extension)) {
-    return `Unsupported file format: ${file.name}. Use PDF, CSV, XLSX or XLS.`;
+    return `Unsupported file format: ${file.name}. Use PDF, DOCX, CSV, XLSX, XLS, or images.`;
   }
 
   if (file.size > MAX_FILE_SIZE) {

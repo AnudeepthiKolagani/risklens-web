@@ -1,3 +1,5 @@
+export type { AnalysisResult, KpiMetric, InsightItem } from "./analysis";
+
 export type Holding = {
   id: string;
   name: string;
