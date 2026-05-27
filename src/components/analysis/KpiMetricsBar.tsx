@@ -29,7 +29,7 @@ export function KpiMetricsBar({ metrics }: { metrics: KpiMetric[] }) {
             key={m.id}
             className={`bloomberg-panel px-3 py-2.5 ${accentClass[m.level]}`}
           >
-            <p className="text-[10px] font-medium uppercase tracking-wider text-slate-500">
+            <p className="text-sm font-medium uppercase tracking-wider text-slate-500">
               {m.label}
             </p>
             <p className={`mt-1 font-metrics text-xl font-bold ${colors.text}`}>
@@ -37,7 +37,7 @@ export function KpiMetricsBar({ metrics }: { metrics: KpiMetric[] }) {
               <span className="text-sm font-normal text-slate-500">{m.unit}</span>
             </p>
             <p
-              className={`mt-0.5 text-[10px] font-medium ${
+              className={`mt-0.5 text-sm font-medium ${
                 up ? "text-emerald-400/90" : "text-red-400/90"
               }`}
             >

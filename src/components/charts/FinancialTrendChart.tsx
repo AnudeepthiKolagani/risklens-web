@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, BLOOMBERG, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, BLOOMBERG, chartCursor } from "@/utils/chartTheme";
 import { RISK_FILL } from "@/utils/risk";
 
 interface Point {
@@ -38,7 +39,11 @@ export function FinancialTrendChart({ data }: { data: Point[] }) {
           tickLine={false}
           domain={[0, 100]}
         />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Area
           yAxisId="left"
           type="monotone"

@@ -10,7 +10,7 @@ export function VisualizationGrid({ result }: { result: AnalysisResult }) {
   return (
     <section className="space-y-3">
       <div className="flex flex-wrap items-end justify-between gap-3">
-        <p className="bloomberg-section-title">Analytics workstation</p>
+        <p className="analysis-section-title">Analytics workstation</p>
         <RiskLegend />
       </div>
 

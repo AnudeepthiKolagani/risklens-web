@@ -6,7 +6,8 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { legendStyle, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { chartCursor, legendStyle } from "@/utils/chartTheme";
 
 interface DataPoint {
   name: string;
@@ -31,7 +32,11 @@ export function RiskDistributionChart({ data }: { data: DataPoint[] }) {
             <Cell key={entry.name} fill={entry.fill} stroke="transparent" />
           ))}
         </Pie>
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Legend layout="vertical" align="right" verticalAlign="middle" wrapperStyle={legendStyle} />
       </PieChart>
     </ResponsiveContainer>

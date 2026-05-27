@@ -17,7 +17,7 @@ export function RiskHeatmapChart({
 
   return (
     <div>
-      <div className="mb-2 flex flex-wrap gap-3 text-[10px] text-slate-500">
+      <div className="mb-2 flex flex-wrap gap-3 text-sm text-slate-500">
         <span className="flex items-center gap-1">
           <span className="bloomberg-legend-dot bg-emerald-500" /> Low
         </span>
@@ -28,7 +28,7 @@ export function RiskHeatmapChart({
           <span className="bloomberg-legend-dot bg-red-500" /> High
         </span>
       </div>
-      <table className="w-full border-collapse text-xs font-medium">
+      <table className="w-full border-collapse text-sm font-medium">
         <thead>
           <tr>
             <th className="p-1.5 text-left text-slate-500" />

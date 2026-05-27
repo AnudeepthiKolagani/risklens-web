@@ -9,7 +9,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, CHART_COLORS, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, CHART_COLORS, chartCursor } from "@/utils/chartTheme";
 
 interface Point {
   metric: string;
@@ -38,7 +39,11 @@ export function ComplianceBarChart({ data }: { data: Point[] }) {
           tickLine={false}
         />
         <ReferenceLine x={80} stroke={CHART_COLORS.amber} strokeDasharray="4 4" strokeOpacity={0.6} />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Bar
           dataKey="score"
           radius={[0, 2, 2, 0]}

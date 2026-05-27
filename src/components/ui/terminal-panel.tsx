@@ -33,7 +33,7 @@ export function TerminalPanel({
           </div>
         </div>
         {ticker && (
-          <span className="shrink-0 font-metrics text-[10px] text-slate-400">
+          <span className="shrink-0 font-metrics text-sm text-slate-400">
             {ticker}
           </span>
         )}

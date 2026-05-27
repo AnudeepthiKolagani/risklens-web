@@ -59,17 +59,17 @@ export function UploadedFileRow({ file, onRemove }: UploadedFileRowProps) {
 
       <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between gap-2">
-          <p className="truncate text-xs font-medium text-slate-200">
+          <p className="truncate text-sm font-medium text-slate-200">
             {file.name}
           </p>
-          <span className="shrink-0 text-xs text-slate-500">
+          <span className="shrink-0 text-sm text-slate-500">
             {formatBytes(file.size)}
           </span>
         </div>
         {status === "uploading" ? (
           <Progress value={progress} className="mt-1.5 h-0.5" />
         ) : (
-          <p className="mt-0.5 text-xs text-slate-500">Ready</p>
+          <p className="mt-0.5 text-sm text-slate-500">Ready</p>
         )}
       </div>
 

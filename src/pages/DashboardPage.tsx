@@ -6,6 +6,7 @@ import { UploadDropzone } from "@/components/upload/UploadDropzone";
 import { UploadedFileList } from "@/components/upload/UploadedFileList";
 import { AnalysisProcessor } from "@/components/upload/AnalysisProcessor";
 import { DashboardChartsPanel } from "@/components/dashboard/DashboardChartsPanel";
+import { PipelineFlowStatus } from "@/components/dashboard/PipelineFlowStatus";
 import { useFileUpload } from "@/hooks/useFileUpload";
 import { useAnalysisStore } from "@/store/analysisStore";
 
@@ -75,18 +76,11 @@ export function DashboardPage() {
             subtitle="Pipeline status"
             className="xl:col-span-3"
           >
-            <ul className="space-y-2 text-sm">
-              <li className="flex justify-between text-slate-400">
-                <span>Queue</span>
-                <span className="font-metrics text-amber-400">
-                  {files.length}
-                </span>
-              </li>
-              <li className="flex justify-between text-slate-400">
-                <span>Engine</span>
-                <span className="text-emerald-400">Ready</span>
-              </li>
-            </ul>
+            <PipelineFlowStatus
+              phase={phase}
+              isAnalyzing={isAnalyzing}
+              queueCount={files.length}
+            />
           </TerminalPanel>
         </div>
       </section>

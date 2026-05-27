@@ -36,7 +36,7 @@ export function Navbar({
             />
           </div>
           {fileCount > 0 && (
-            <span className="text-xs text-slate-500">
+            <span className="text-sm text-slate-500">
               {fileCount} · {formatBytes(totalSize)}
             </span>
           )}
@@ -49,7 +49,7 @@ export function Navbar({
           </button>
           <div className="flex h-8 items-center gap-2 rounded-2xl border border-white/10 bg-black/40 px-2">
             <User className="h-3.5 w-3.5 text-slate-500" />
-            <span className="text-xs text-slate-400">Analyst</span>
+            <span className="text-sm text-slate-400">Analyst</span>
           </div>
         </div>
       </div>

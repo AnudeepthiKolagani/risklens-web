@@ -24,7 +24,7 @@ export function RiskBreakdownPanel({
                 style={{ borderLeftColor: c.fill }}
               >
                 <p className={`text-sm font-medium ${c.text}`}>{a.field}</p>
-                <p className="mt-0.5 text-xs text-slate-500">{a.description}</p>
+                <p className="mt-0.5 text-sm text-slate-500">{a.description}</p>
               </li>
             );
           })}

@@ -6,7 +6,8 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { legendStyle, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { chartCursor, legendStyle } from "@/utils/chartTheme";
 
 interface Point {
   name: string;
@@ -43,7 +44,11 @@ export function LabeledPieChart({
             <Cell key={entry.name} fill={entry.fill} stroke="#040608" strokeWidth={1} />
           ))}
         </Pie>
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Legend
           layout="horizontal"
           align="center"

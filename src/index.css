@@ -312,7 +312,11 @@ code {
 }
 
 .bloomberg-section-title {
-  @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-[#ff9900];
+  @apply text-sm font-semibold uppercase tracking-[0.16em] text-[#ff9900];
+}
+
+.analysis-section-title {
+  @apply text-sm font-semibold uppercase tracking-[0.16em] text-cyan-400;
 }
 
 .bloomberg-legend-dot {
@@ -326,11 +330,67 @@ code {
 }
 
 .terminal-label {
-  @apply text-xs font-medium text-slate-400;
+  @apply text-sm font-medium text-slate-400;
 }
 
 .terminal-caption {
-  @apply text-xs leading-relaxed text-slate-500;
+  @apply text-sm leading-relaxed text-slate-500;
+}
+
+/* Recharts — prevent default light tooltip / cursor wash */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+  z-index: 20;
+}
+
+.recharts-default-tooltip {
+  background: #0a1018 !important;
+  border: 1px solid rgba(34, 211, 238, 0.45) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55) !important;
+}
+
+.recharts-active-dot {
+  filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.6));
+}
+
+/* Light terminal theme */
+html[data-terminal-theme="light"] .terminal-bg {
+  background-color: #f1f5f9;
+  background-image: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.06) 0%,
+    transparent 120px
+  );
+  color: #0f172a;
+}
+
+html[data-terminal-theme="light"] .bloomberg-panel {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  box-shadow: inset 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+html[data-terminal-theme="light"] .bloomberg-panel-body {
+  background: #f8fafc;
+}
+
+html[data-terminal-theme="light"] .bloomberg-panel header {
+  background: #e2e8f0;
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+html[data-terminal-theme="light"] .terminal-label,
+html[data-terminal-theme="light"] .terminal-caption {
+  @apply text-slate-600;
+}
+
+html[data-terminal-theme="light"] ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+html[data-terminal-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
 }
 
 .kpi-accent-low { border-left: 3px solid var(--risk-green); }

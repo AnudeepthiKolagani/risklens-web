@@ -1,58 +1,62 @@
-import { DashboardLayout } from "../layouts/DashboardLayout";
-import { SectionHeader } from "../components/shared/SectionHeader";
-import { motion } from "framer-motion";
+import { TerminalLayout } from "@/components/layout/TerminalLayout";
+import { TerminalPanel } from "@/components/ui/terminal-panel";
+import { ThemeSelector } from "@/components/settings/ThemeSelector";
 
 export function SettingsPage() {
   return (
-    <DashboardLayout fileCount={2} totalSize={1024}>
-      <div className="space-y-6">
-        <SectionHeader
-          title="Settings"
-          subtitle="Manage preferences and connections"
-        />
-
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="lg:col-span-1 rounded-2xl border border-white/6 bg-slate-950/60 p-6 shadow-lg backdrop-blur"
+    <TerminalLayout
+      title="Settings"
+      subtitle="Preferences · Theme · Profile"
+    >
+      <section className="space-y-3">
+        <p className="analysis-section-title">Configuration</p>
+        <div className="grid gap-3 lg:grid-cols-12">
+          <TerminalPanel
+            title="Profile"
+            subtitle="Account"
+            className="lg:col-span-4"
           >
-            <h4 className="text-sm font-medium text-slate-300">Profile</h4>
-            <div className="mt-4 space-y-3 text-sm text-slate-300">
-              <p>Name: Institutional User</p>
-              <p>Email: user@example.com</p>
+            <div className="space-y-2 text-sm text-slate-400">
+              <p>
+                <span className="text-slate-500">Name: </span>
+                Institutional User
+              </p>
+              <p>
+                <span className="text-slate-500">Email: </span>
+                user@example.com
+              </p>
             </div>
-          </motion.div>
+          </TerminalPanel>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="lg:col-span-2 rounded-2xl border border-white/6 bg-slate-950/60 p-6 shadow-lg backdrop-blur"
+          <TerminalPanel
+            title="Preferences"
+            subtitle="Workspace"
+            className="lg:col-span-8"
           >
-            <h4 className="text-sm font-medium text-slate-300">Preferences</h4>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-md border border-white/6 p-4">
-                <p className="text-sm text-slate-300">Email notifications</p>
-                <div className="mt-2">
-                  <label className="inline-flex items-center gap-2">
-                    <input type="checkbox" defaultChecked className="h-4 w-4" />
-                    <span className="text-sm text-slate-300">
-                      Portfolio alerts
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="rounded-md border border-white/6 p-4">
-                <p className="text-sm text-slate-300">AI Settings</p>
-                <p className="mt-2 text-sm text-slate-400">
-                  Model: RiskLens-Alpha (simulated)
-                </p>
-              </div>
+            <ThemeSelector />
+            <div className="mt-6 border-t border-white/10 pt-4">
+              <p className="text-sm font-medium text-slate-300">
+                Email notifications
+              </p>
+              <label className="mt-2 inline-flex items-center gap-2 text-sm text-slate-400">
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="h-4 w-4 rounded-sm border-white/20"
+                />
+                Portfolio alerts
+              </label>
             </div>
-          </motion.div>
+            <div className="mt-4">
+              <p className="text-sm font-medium text-slate-300">AI model</p>
+              <p className="mt-1 text-sm text-slate-500">
+                RiskLens-Alpha (simulated)
+              </p>
+            </div>
+          </TerminalPanel>
         </div>
-      </div>
-    </DashboardLayout>
+      </section>
+    </TerminalLayout>
   );
 }
 

@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, BLOOMBERG, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, BLOOMBERG, chartCursor } from "@/utils/chartTheme";
 import { healthScoreFill } from "@/utils/risk";
 
 interface Point {
@@ -30,7 +31,11 @@ export function CategoryBarChart({ data }: { data: Point[] }) {
           axisLine={false}
           tickLine={false}
         />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Bar dataKey="score" radius={[0, 2, 2, 0]} barSize={14}>
           {data.map((entry) => (
             <Cell key={entry.category} fill={healthScoreFill(entry.score)} />

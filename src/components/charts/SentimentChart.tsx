@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, legendStyle, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, chartCursor, legendStyle } from "@/utils/chartTheme";
 
 interface Point {
   label: string;
@@ -29,7 +30,11 @@ export function SentimentChart({ data }: { data: Point[] }) {
           tickLine={false}
         />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Legend wrapperStyle={legendStyle} />
         <Bar dataKey="positive" stackId="a" fill="#64748b" />
         <Bar dataKey="neutral" stackId="a" fill="#475569" />

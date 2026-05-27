@@ -18,7 +18,7 @@ export function AnalysisDetailsPanel({ result }: { result: AnalysisResult }) {
         <TabsContent value="insights">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-white/10 text-left text-[10px] uppercase tracking-wider text-slate-500">
+              <tr className="border-b border-white/10 text-left text-sm uppercase tracking-wider text-slate-500">
                 <th className="pb-2 pr-4">Title</th>
                 <th className="pb-2">Conf.</th>
               </tr>

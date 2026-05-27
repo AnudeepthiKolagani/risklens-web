@@ -24,16 +24,16 @@ export function InsightsFeed({
             <li key={item.id} className="px-3 py-3">
               <div className="flex items-center justify-between gap-2">
                 <span
-                  className={`text-[10px] font-semibold uppercase tracking-wider ${c.text}`}
+                  className={`text-sm font-semibold uppercase tracking-wider ${c.text}`}
                 >
                   {item.category}
                 </span>
-                <span className="font-metrics text-[10px] text-slate-500">
+                <span className="font-metrics text-sm text-slate-500">
                   {item.confidence}%
                 </span>
               </div>
               <p className="mt-1 text-sm font-medium text-slate-200">{item.title}</p>
-              <p className="mt-1 text-xs leading-relaxed text-slate-500">{item.body}</p>
+              <p className="mt-1 text-sm leading-relaxed text-slate-500">{item.body}</p>
             </li>
           );
         })}

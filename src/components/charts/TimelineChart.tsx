@@ -7,7 +7,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, CHART_COLORS, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, CHART_COLORS, chartCursor } from "@/utils/chartTheme";
 
 interface Point {
   date: string;
@@ -27,7 +28,11 @@ export function TimelineChart({ data }: { data: Point[] }) {
           tickLine={false}
         />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Line
           type="monotone"
           dataKey="risk"

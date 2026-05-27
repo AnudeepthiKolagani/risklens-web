@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, CHART_COLORS, legendStyle, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, CHART_COLORS, chartCursor, legendStyle } from "@/utils/chartTheme";
 
 interface Point {
   layer: string;
@@ -24,7 +25,11 @@ export function RiskStackedBarChart({ data }: { data: Point[] }) {
         <CartesianGrid strokeDasharray="2 2" stroke="rgba(255,255,255,0.06)" vertical={false} />
         <XAxis dataKey="layer" tick={axisTick} axisLine={false} tickLine={false} />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Legend wrapperStyle={legendStyle} />
         <Bar dataKey="low" stackId="a" fill="#475569" name="Low" />
         <Bar dataKey="medium" stackId="a" fill="#64748b" name="Medium" />

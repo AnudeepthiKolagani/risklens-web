@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, CHART_COLORS, legendStyle, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, CHART_COLORS, chartCursor, legendStyle } from "@/utils/chartTheme";
 
 interface Point {
   day: string;
@@ -23,7 +24,11 @@ export function GroupedComparisonBarChart({ data }: { data: Point[] }) {
         <CartesianGrid strokeDasharray="2 2" stroke="rgba(255,255,255,0.06)" vertical={false} />
         <XAxis dataKey="day" tick={axisTick} axisLine={false} tickLine={false} />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Legend wrapperStyle={legendStyle} />
         <Bar dataKey="files" fill={CHART_COLORS.cyan} name="Uploaded" radius={[2, 2, 0, 0]} barSize={14} />
         <Bar dataKey="processed" fill={CHART_COLORS.emerald} name="Processed" radius={[2, 2, 0, 0]} barSize={14} />

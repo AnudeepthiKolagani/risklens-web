@@ -68,7 +68,7 @@ export function AnalysisProcessor({
         {isAnalyzing && (
           <>
             <Progress value={phaseProgress(phase)} className="h-1" />
-            <ul className="space-y-1 text-xs text-slate-500">
+            <ul className="space-y-1 text-sm text-slate-500">
               {ANALYSIS_PHASES.map((step) => {
                 const stepIdx = phaseOrder.indexOf(step.phase);
                 const currentIdx = phaseOrder.indexOf(phase);

@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, BLOOMBERG, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, BLOOMBERG, chartCursor } from "@/utils/chartTheme";
 
 interface Point {
   sector: string;
@@ -23,7 +24,11 @@ export function SectorExposureBarChart({ data }: { data: Point[] }) {
         <CartesianGrid stroke={BLOOMBERG.grid} vertical={false} />
         <XAxis dataKey="sector" tick={axisTick} axisLine={false} tickLine={false} />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} unit="%" />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Bar dataKey="exposure" radius={[2, 2, 0, 0]} barSize={32}>
           {data.map((entry) => (
             <Cell key={entry.sector} fill={entry.fill} />

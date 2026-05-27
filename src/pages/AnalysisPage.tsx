@@ -40,9 +40,11 @@ export function AnalysisPage() {
       fileCount={data.documentCount}
     >
       <section className="space-y-3">
-        <p className="bloomberg-section-title">Risk summary</p>
+        <p className="analysis-section-title">Risk summary</p>
         <TerminalPanel title="Executive summary" ticker="TXT">
-          <p className="text-sm leading-relaxed text-slate-400">{data.summary}</p>
+          <p className="text-sm leading-relaxed text-slate-400">
+            {data.summary}
+          </p>
         </TerminalPanel>
         <KpiMetricsBar metrics={data.kpis} />
       </section>
@@ -64,7 +66,7 @@ export function AnalysisPage() {
         <Button
           variant="outline"
           onClick={() => navigate("/dashboard")}
-          className="rounded-sm border-[#ff9900]/30 bg-[#ff9900]/10 text-sm text-[#ff9900] hover:bg-[#ff9900]/20"
+          className="bg-cyan-300 text-cyan-700 hover:text-cyan-400 hover:bg-cyan-300/20 cursor-pointer"
         >
           New analysis
         </Button>

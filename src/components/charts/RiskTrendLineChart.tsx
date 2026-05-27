@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { axisTick, BLOOMBERG, legendStyle, tooltipStyle } from "@/utils/chartTheme";
+import { ChartTooltip } from "./ChartTooltip";
+import { axisTick, BLOOMBERG, chartCursor, legendStyle } from "@/utils/chartTheme";
 import { RISK_FILL } from "@/utils/risk";
 
 interface Point {
@@ -24,7 +25,11 @@ export function RiskTrendLineChart({ data }: { data: Point[] }) {
         <CartesianGrid stroke={BLOOMBERG.grid} strokeDasharray="3 3" />
         <XAxis dataKey="period" tick={axisTick} axisLine={false} tickLine={false} />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} domain={[40, 70]} />
-        <Tooltip contentStyle={tooltipStyle} />
+        <Tooltip
+          content={<ChartTooltip />}
+          cursor={chartCursor}
+          wrapperStyle={{ outline: "none" }}
+        />
         <Legend wrapperStyle={legendStyle} />
         <Line
           type="monotone"

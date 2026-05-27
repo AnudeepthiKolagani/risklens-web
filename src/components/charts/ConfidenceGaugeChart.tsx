@@ -32,7 +32,7 @@ export function ConfidenceGaugeChart({ value }: { value: number }) {
         <span className="font-metrics text-3xl font-bold" style={{ color: fill }}>
           {value}%
         </span>
-        <span className="text-[10px] font-medium uppercase tracking-wider text-slate-500">
+        <span className="text-sm font-medium uppercase tracking-wider text-slate-500">
           Confidence
         </span>
       </div>
