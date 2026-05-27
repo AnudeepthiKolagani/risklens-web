@@ -167,7 +167,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;
@@ -192,7 +192,14 @@ body {
 }
 
 body {
-  background: radial-gradient(circle at top, rgba(14,165,233,0.12), transparent 28%), radial-gradient(circle at 90% 10%, rgba(168,85,247,0.14), transparent 22%), #020617;
+  background:
+    radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 28%),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(168, 85, 247, 0.14),
+      transparent 22%
+    ),
+    #020617;
   color: #e5e7eb;
 }
 
@@ -215,7 +222,11 @@ select {
   inset: 0 auto auto 0;
   height: 420px;
   width: 100%;
-  background: radial-gradient(circle at top, rgba(14, 165, 233, 0.18), transparent 25%);
+  background: radial-gradient(
+    circle at top,
+    rgba(14, 165, 233, 0.18),
+    transparent 25%
+  );
   filter: blur(3rem);
 }
 
@@ -226,7 +237,11 @@ select {
   width: 420px;
   transform: translateX(-50%);
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.16), transparent 50%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.16),
+    transparent 50%
+  );
   filter: blur(3rem);
 }
 
@@ -235,7 +250,11 @@ select {
   bottom: 0;
   height: 160px;
   width: 100%;
-  background: radial-gradient(circle at bottom, rgba(59, 130, 246, 0.12), transparent 44%);
+  background: radial-gradient(
+    circle at bottom,
+    rgba(59, 130, 246, 0.12),
+    transparent 44%
+  );
   filter: blur(3rem);
 }
 
@@ -245,6 +264,10 @@ select {
   height: 18rem;
   width: 18rem;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.16), transparent 56%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.16),
+    transparent 56%
+  );
   filter: blur(3rem);
 }

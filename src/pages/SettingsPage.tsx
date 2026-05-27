@@ -3,10 +3,7 @@ import { TerminalPanel } from "@/components/ui/terminal-panel";
 
 export function SettingsPage() {
   return (
-    <TerminalLayout
-      title="Settings"
-      subtitle="Preferences · Profile"
-    >
+    <TerminalLayout title="Settings" subtitle="Preferences · Profile">
       <section className="space-y-3">
         <p className="analysis-section-title">Configuration</p>
         <div className="grid gap-3 lg:grid-cols-12">

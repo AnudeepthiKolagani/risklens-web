@@ -41,11 +41,7 @@ export function PipelineFlowStatus({
     done: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400",
   };
   const engineLabel =
-    phase === "complete"
-      ? "Complete"
-      : isAnalyzing
-        ? "Running"
-        : "Ready";
+    phase === "complete" ? "Complete" : isAnalyzing ? "Running" : "Ready";
 
   const engineClass =
     phase === "complete"
